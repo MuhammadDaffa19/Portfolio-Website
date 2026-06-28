@@ -1,0 +1,3303 @@
+/* =========================
+   RESPONSIVE MODE
+   Portfolio Website
+========================= */
+
+/* =========================
+   TABLET & SMALL LAPTOP
+   <= 1024px
+========================= */
+.navbar-menu-toggle {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .inner-page {
+    padding-top: 104px;
+  }
+
+  .inner-page-container {
+    width: min(100% - 36px, 920px);
+  }
+
+  .inner-title,
+  .about-title,
+  .skills-title,
+  .experience-title,
+  .learning-title,
+  .contact-title {
+    font-size: clamp(2.35rem, 6vw, 3.8rem);
+    line-height: 1;
+  }
+
+  .inner-description {
+    max-width: 720px;
+    font-size: 0.98rem;
+  }
+
+  .about-hero,
+  .skills-hero,
+  .experience-hero,
+  .learning-hero,
+  .contact-hero {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .about-profile-card,
+  .skills-overview-card,
+  .experience-overview-card,
+  .learning-overview-card,
+  .contact-overview-card {
+    max-width: 100%;
+  }
+
+  .project-grid,
+  .skills-group-grid,
+  .learning-path-grid,
+  .contact-channel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-content-grid,
+  .skills-content-grid,
+  .experience-content-grid,
+  .learning-content-grid,
+  .contact-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-focus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-timeline {
+    padding-left: 0;
+  }
+
+  .experience-timeline::before {
+    left: 24px;
+  }
+
+  .experience-timeline-item {
+    grid-template-columns: 52px minmax(0, 1fr);
+  }
+
+  .experience-timeline-card ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   MOBILE GLOBAL
+   <= 768px
+========================= */
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  body {
+    min-width: 320px;
+  }
+
+  .site-layout.is-inner {
+    min-height: 100vh;
+  }
+
+  .page-transition {
+    width: 100%;
+  }
+
+  .inner-page {
+    padding-top: 86px;
+    padding-bottom: 56px;
+  }
+
+  .inner-page-container {
+    width: min(100% - 28px, 100%);
+  }
+
+  .inner-eyebrow,
+  .about-profile-label,
+  .about-section-label,
+  .skills-card-label,
+  .experience-card-label,
+  .learning-card-label,
+  .contact-card-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+  }
+
+  .inner-title,
+  .about-title,
+  .skills-title,
+  .experience-title,
+  .learning-title,
+  .contact-title {
+    font-size: clamp(2rem, 10vw, 3.05rem);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+  }
+
+  .inner-description {
+    margin-top: 16px;
+    font-size: 0.92rem;
+    line-height: 1.68;
+  }
+
+  /* =========================
+   MOBILE NAVBAR
+   Burger dropdown khusus mobile.
+  ========================= */
+
+  .inner-navbar {
+    left: 12px;
+    right: 12px;
+    top: 10px;
+    display: grid;
+    width: auto;
+    grid-template-columns: minmax(0, 1fr) 38px 38px;
+    align-items: center;
+    gap: 8px;
+    min-height: auto;
+    padding: 9px;
+    border-radius: 24px;
+    transform: none;
+    overflow: visible;
+  }
+
+  .navbar-brand {
+    min-width: 0;
+    height: 38px;
+    padding: 0 11px;
+    gap: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.035);
+    font-size: 0.72rem;
+    line-height: 1;
+  }
+
+  .navbar-brand span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .navbar-actions {
+    display: grid;
+    place-items: center;
+    justify-self: end;
+  }
+
+  .navbar-cv {
+    width: 38px;
+    min-width: 38px;
+    height: 38px;
+    min-height: 38px;
+    padding: 0;
+    border-radius: 999px;
+  }
+
+  .navbar-cv span {
+    display: none;
+  }
+
+  .navbar-menu-toggle {
+    display: grid;
+    width: 38px;
+    min-width: 38px;
+    height: 38px;
+    min-height: 38px;
+    place-items: center;
+    padding: 0;
+    border: 1px solid rgba(234, 241, 255, 0.14);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.045);
+    color: rgba(234, 241, 255, 0.9);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.07),
+      0 0 18px rgba(167, 139, 250, 0.08);
+    transition:
+      color 0.22s ease,
+      border-color 0.22s ease,
+      background 0.22s ease,
+      transform 0.22s ease;
+  }
+
+  .navbar-menu-toggle:hover,
+  .inner-navbar.is-menu-open .navbar-menu-toggle {
+    color: #ffffff;
+    border-color: rgba(167, 139, 250, 0.38);
+    background: rgba(167, 139, 250, 0.14);
+    transform: translateY(-1px);
+  }
+
+  .navbar-links {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 10px);
+    z-index: 80;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    overflow: hidden;
+    padding: 14px;
+    border: 1px solid rgba(234, 241, 255, 0.16);
+    border-radius: 26px;
+
+    /* Solid dark panel, tidak transparan */
+    background:
+      radial-gradient(circle at 18% 0%, rgba(167, 139, 250, 0.22), transparent 38%),
+      radial-gradient(circle at 100% 100%, rgba(124, 157, 255, 0.14), transparent 36%),
+      linear-gradient(135deg, #111833 0%, #090e20 52%, #050916 100%);
+
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.09),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.025),
+      0 24px 70px rgba(0, 0, 0, 0.58),
+      0 0 34px rgba(167, 139, 250, 0.14);
+
+    backdrop-filter: none;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px) scale(0.98);
+    transform-origin: top center;
+    transition:
+      opacity 0.22s ease,
+      transform 0.22s ease;
+  }
+
+  .navbar-links::before {
+    content: "NAVIGASI";
+    grid-column: 1 / -1;
+    display: block;
+    margin-bottom: 2px;
+    padding: 0 2px;
+    color: rgba(167, 139, 250, 0.86);
+    font-size: 0.58rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+  }
+
+  .navbar-links::after {
+    content: "";
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    top: 34px;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(167, 139, 250, 0.42),
+      transparent
+    );
+    pointer-events: none;
+  }
+
+  .navbar-links.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+
+  .navbar-link {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    border: 1px solid rgba(234, 241, 255, 0.1);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.045);
+    color: rgba(234, 241, 255, 0.72);
+    font-size: 0.68rem;
+    font-weight: 800;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.045),
+      0 10px 24px rgba(0, 0, 0, 0.16);
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease,
+      background 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .navbar-link:hover {
+    color: #ffffff;
+    border-color: rgba(167, 139, 250, 0.28);
+    background: rgba(167, 139, 250, 0.11);
+    transform: translateY(-1px);
+  }
+
+  .navbar-link.is-active {
+    color: #ffffff;
+    border-color: rgba(199, 183, 255, 0.42);
+    background:
+      radial-gradient(circle at 30% 0%, rgba(199, 183, 255, 0.28), transparent 48%),
+      linear-gradient(135deg, rgba(167, 139, 250, 0.28), rgba(124, 157, 255, 0.13));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 0 0 1px rgba(167, 139, 250, 0.2),
+      0 0 22px rgba(167, 139, 250, 0.18),
+      0 12px 28px rgba(0, 0, 0, 0.24);
+  }
+
+  .inner-navbar {
+    z-index: 100;
+  }
+
+  /* =========================
+     MOBILE HOME
+  ========================= */
+
+  .home-gateway {
+    min-height: 100svh;
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .home-content {
+    min-height: 100svh;
+    height: auto;
+    grid-template-rows: auto auto auto auto;
+    align-content: center;
+    gap: 18px;
+    padding: 26px 16px 22px;
+    overflow: visible;
+  }
+
+  .home-header {
+    align-self: center;
+  }
+
+  .home-welcome {
+    font-size: 1rem;
+  }
+
+  .home-title {
+    margin-top: 6px;
+    font-size: clamp(2.45rem, 12vw, 3.4rem);
+    line-height: 0.95;
+  }
+
+  .home-subtitle {
+    max-width: 340px;
+    margin-top: 12px;
+    font-size: 0.86rem;
+    line-height: 1.55;
+  }
+
+  .home-role-pill {
+    max-width: 100%;
+    margin-top: 12px;
+    padding: 8px 14px;
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .orbital-stage {
+    width: 100%;
+    height: auto;
+    min-height: 560px;
+    display: grid;
+    place-items: center;
+    margin-top: 0;
+  }
+
+  .orbit-line-one {
+    width: 260px;
+    height: 260px;
+  }
+
+  .orbit-line-two {
+    width: 312px;
+    height: 312px;
+  }
+
+  .orbit-line-three {
+    width: 360px;
+    height: 360px;
+  }
+
+  .orbit-line {
+    border-radius: 999px;
+    transform: translate(-50%, -50%);
+  }
+
+  .orbital-core {
+    width: 140px;
+    height: 140px;
+  }
+
+  .core-monogram {
+    font-size: 1.72rem;
+  }
+
+  .core-name {
+    font-size: 0.45rem;
+    letter-spacing: 0.2em;
+  }
+
+  .core-identity {
+    min-height: 78px;
+    gap: 8px;
+  }
+
+  .orbit-button {
+    position: absolute;
+  }
+
+  .orbit-button-link {
+    width: 156px;
+    height: 58px;
+    gap: 8px;
+    padding: 7px 9px 7px 7px;
+  }
+
+  .orbit-icon-wrap {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+
+  .orbit-icon-wrap svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .orbit-label {
+    font-size: 0.78rem;
+  }
+
+  .orbit-description {
+    display: none;
+  }
+
+  .orbit-top-left {
+    top: 56px;
+    left: 0;
+  }
+
+  .orbit-top-right {
+    top: 56px;
+    right: 0;
+  }
+
+  .orbit-middle-left {
+    top: 242px;
+    left: 0;
+  }
+
+  .orbit-middle-right {
+    top: 242px;
+    right: 0;
+  }
+
+  .orbit-bottom-left {
+    bottom: 56px;
+    left: 0;
+  }
+
+  .orbit-bottom-right {
+    bottom: 56px;
+    right: 0;
+  }
+
+  .home-quote {
+    width: min(100%, 340px);
+    padding: 9px 13px;
+  }
+
+  .home-quote p {
+    max-width: 275px;
+    font-size: 0.68rem;
+    line-height: 1.38;
+  }
+
+  .home-hint {
+    margin-top: 0;
+    font-size: 0.72rem;
+  }
+
+  /* =========================
+    MOBILE ABOUT
+    Compact premium layout
+  ========================= */
+
+  .about-page {
+    padding-top: 88px;
+    padding-bottom: 56px;
+  }
+
+  .about-hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .about-hero-copy {
+    min-width: 0;
+  }
+
+  .about-page .inner-eyebrow {
+    margin-bottom: 10px;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+  }
+
+  .about-title {
+    max-width: 100%;
+    font-size: clamp(1.62rem, 7.8vw, 2.18rem);
+    line-height: 1.02;
+    letter-spacing: -0.052em;
+  }
+
+  .about-page .inner-description {
+    max-width: 100%;
+    margin-top: 13px;
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  /* Profile card dibuat lebih compact, bukan card besar vertikal */
+  .about-profile-card {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 104px minmax(0, 1fr);
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .about-profile-card::before {
+    inset: -72px auto auto -72px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .about-profile-orb {
+    width: 104px;
+    height: 104px;
+    margin: 0;
+  }
+
+  .about-profile-orb::after {
+    inset: 8px;
+  }
+
+  .about-profile-photo-layer {
+    inset: 7px;
+  }
+
+  .about-profile-identity {
+    min-height: 68px;
+    gap: 6px;
+  }
+
+  .about-profile-monogram {
+    font-size: 1.34rem;
+  }
+
+  .about-profile-name {
+    gap: 2px;
+    font-size: 0.34rem;
+    letter-spacing: 0.16em;
+  }
+
+  .about-profile-content {
+    min-width: 0;
+    text-align: left;
+  }
+
+  .about-profile-label,
+  .about-section-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.17em;
+  }
+
+  .about-profile-card h2 {
+    margin-top: 7px;
+    font-size: 1.08rem;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+  }
+
+  .about-profile-card p:last-of-type {
+    margin-top: 7px;
+    font-size: 0.72rem;
+    line-height: 1.45;
+  }
+
+  .about-profile-tags {
+    justify-content: flex-start;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .about-profile-tags span {
+    padding: 5px 8px;
+    font-size: 0.6rem;
+  }
+
+  /* Stats dibuat compact 2 kolom */
+  .about-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .about-stat-card {
+    min-height: 82px;
+    padding: 14px;
+    border-radius: 20px;
+  }
+
+  .about-stat-card strong {
+    font-size: 1.32rem;
+  }
+
+  .about-stat-card span {
+    margin-top: 7px;
+    font-size: 0.7rem;
+    line-height: 1.32;
+  }
+
+  /* Story & values lebih ringan dibaca */
+  .about-content-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .about-story-card,
+  .about-values-card {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .about-story-card::before,
+  .about-values-card::before,
+  .about-focus-card::before {
+    left: 18px;
+    right: 18px;
+  }
+
+  .about-story-card h2,
+  .about-values-card h2,
+  .about-section-head h2 {
+    margin-top: 9px;
+    font-size: 1.14rem;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+  }
+
+  .about-story-card p:not(.about-section-label) {
+    margin-top: 12px;
+    font-size: 0.78rem;
+    line-height: 1.58;
+  }
+
+  .about-values-card ul {
+    gap: 9px;
+    margin-top: 14px;
+  }
+
+  .about-values-card li {
+    padding-left: 18px;
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+
+  .about-values-card li::before {
+    top: 0.56em;
+    width: 6px;
+    height: 6px;
+  }
+
+  /* Focus area dibuat seperti compact list-card */
+  .about-focus-section {
+    margin-top: 18px;
+  }
+
+  .about-section-head {
+    margin-bottom: 12px;
+  }
+
+  .about-focus-grid {
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+
+  .about-focus-card {
+    min-height: auto;
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .about-focus-card span {
+    font-size: 0.72rem;
+  }
+
+  .about-focus-card h3 {
+    margin-top: 14px;
+    font-size: 1.02rem;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+  }
+
+  .about-focus-card p {
+    margin-top: 9px;
+    font-size: 0.76rem;
+    line-height: 1.52;
+  }
+
+  /* =========================
+   MOBILE PROJECTS
+   Compact premium layout
+  ========================= */
+
+  .project-archive-page {
+    padding-top: 88px;
+    padding-bottom: 56px;
+  }
+
+  .project-archive-head {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .project-archive-page .inner-eyebrow {
+    margin-bottom: 10px;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+  }
+
+  .project-archive-page .inner-title {
+    max-width: 100%;
+    font-size: clamp(1.62rem, 7.8vw, 2.18rem);
+    line-height: 1.02;
+    letter-spacing: -0.052em;
+  }
+
+  .project-archive-page .inner-description {
+    max-width: 100%;
+    margin-top: 13px;
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  .project-archive-summary {
+    width: 100%;
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .project-archive-summary span {
+    font-size: 2rem;
+  }
+
+  .project-archive-summary p {
+    margin-top: 8px;
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  /* Project cards */
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .project-card {
+    grid-template-columns: 1fr;
+    border-radius: 24px;
+  }
+
+  .project-card-visual {
+    height: 168px;
+    min-height: 168px;
+  }
+
+  .project-card-placeholder {
+    padding: 18px;
+  }
+
+  .project-card-placeholder span {
+    font-size: 1.18rem;
+  }
+
+  .project-card-status {
+    top: 12px;
+    right: 12px;
+    padding: 6px 10px;
+    font-size: 0.64rem;
+  }
+
+  .project-card-content {
+    padding: 18px;
+  }
+
+  .project-card-meta {
+    gap: 7px;
+  }
+
+  .project-card-meta span {
+    font-size: 0.62rem;
+    letter-spacing: 0.07em;
+  }
+
+  .project-card-content h2 {
+    margin-top: 13px;
+    font-size: 1.24rem;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+  }
+
+  .project-card-content p {
+    margin-top: 11px;
+    font-size: 0.78rem;
+    line-height: 1.58;
+  }
+
+  .project-stack {
+    gap: 7px;
+    margin-top: 14px;
+  }
+
+  .project-stack span {
+    padding: 6px 9px;
+    font-size: 0.64rem;
+  }
+
+  .project-highlights {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 15px;
+  }
+
+  .project-highlights li {
+    padding-left: 15px;
+    font-size: 0.74rem;
+    line-height: 1.45;
+  }
+
+  .project-highlights li::before {
+    top: 0.58em;
+    width: 6px;
+    height: 6px;
+  }
+
+  .project-detail-button {
+    width: 100%;
+    min-height: 40px;
+    justify-content: center;
+    margin-top: 18px;
+    padding: 0 14px;
+    font-size: 0.76rem;
+  }
+
+  /* Study case modal */
+  .study-modal-overlay {
+    align-items: flex-end;
+    padding: 12px;
+  }
+
+  .study-modal-card {
+    width: 100%;
+    height: auto;
+    max-height: calc(100svh - 24px);
+    grid-template-columns: 1fr;
+    border-radius: 26px;
+  }
+
+  .study-modal-close {
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .study-modal-preview {
+    min-height: 190px;
+    grid-template-rows: 190px auto;
+    gap: 12px;
+    padding: 16px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(234, 241, 255, 0.1);
+  }
+
+  .study-modal-image-button {
+    border-radius: 20px;
+  }
+
+  .study-modal-image-button img {
+    border-radius: 18px;
+  }
+
+  .study-modal-image-button span {
+    left: 11px;
+    bottom: 11px;
+    padding: 7px 10px;
+    font-size: 0.66rem;
+  }
+
+  .study-modal-image-button strong {
+    font-size: 1.35rem;
+  }
+
+  .study-modal-badges,
+  .study-modal-meta,
+  .study-modal-stack {
+    gap: 7px;
+  }
+
+  .study-modal-badges span,
+  .study-modal-meta span,
+  .study-modal-stack span {
+    padding: 6px 9px;
+    font-size: 0.64rem;
+  }
+
+  .study-modal-content {
+    max-height: calc(100svh - 250px);
+    padding: 20px;
+  }
+
+  .study-modal-meta {
+    padding-right: 44px;
+    margin-bottom: 13px;
+  }
+
+  .study-modal-content h2 {
+    max-width: 100%;
+    font-size: clamp(1.5rem, 8vw, 2.05rem);
+    line-height: 1.02;
+    letter-spacing: -0.052em;
+  }
+
+  .study-modal-description {
+    margin-top: 13px;
+    font-size: 0.8rem;
+    line-height: 1.58;
+  }
+
+  .study-modal-stack {
+    margin-top: 15px;
+  }
+
+  .study-modal-grid {
+    grid-template-columns: 1fr;
+    gap: 11px;
+    margin-top: 18px;
+  }
+
+  .study-modal-grid section {
+    min-height: auto;
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .study-modal-grid section::before {
+    left: 16px;
+    right: 16px;
+  }
+
+  .study-modal-grid section > span {
+    margin-bottom: 10px;
+    font-size: 0.62rem;
+  }
+
+  .study-modal-grid p,
+  .study-modal-grid li {
+    font-size: 0.76rem;
+    line-height: 1.55;
+  }
+
+  .study-image-viewer {
+    padding: 16px;
+  }
+
+  .study-image-viewer img {
+    max-width: calc(100vw - 32px);
+    max-height: 82svh;
+    border-radius: 18px;
+  }
+
+  .study-image-viewer-close {
+    top: 16px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+  }
+
+  /* =========================
+   MOBILE SKILLS
+   Compact premium layout
+  ========================= */
+
+  .skills-page {
+    padding-top: 88px;
+    padding-bottom: 56px;
+  }
+
+  .skills-hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .skills-hero-copy {
+    min-width: 0;
+  }
+
+  .skills-page .inner-eyebrow {
+    margin-bottom: 10px;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+  }
+
+  .skills-title {
+    max-width: 100%;
+    font-size: clamp(1.62rem, 7.8vw, 2.18rem);
+    line-height: 1.02;
+    letter-spacing: -0.052em;
+  }
+
+  .skills-page .inner-description {
+    max-width: 100%;
+    margin-top: 13px;
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  /* Overview card */
+  .skills-overview-card {
+    width: 100%;
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .skills-overview-card::before {
+    inset: -72px auto auto -72px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .skills-card-label,
+  .skills-group-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.17em;
+  }
+
+  .skills-overview-card h2 {
+    margin-top: 9px;
+    font-size: 1.18rem;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+  }
+
+  .skills-overview-card p:not(.skills-card-label) {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    line-height: 1.56;
+  }
+
+  .skills-orbit-tags {
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  .skills-orbit-tags span {
+    padding: 6px 9px;
+    font-size: 0.62rem;
+  }
+
+  /* Stats */
+  .skills-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .skills-stat-card {
+    min-height: 82px;
+    padding: 14px;
+    border-radius: 20px;
+  }
+
+  .skills-stat-card strong {
+    font-size: 1.32rem;
+  }
+
+  .skills-stat-card span {
+    margin-top: 7px;
+    font-size: 0.7rem;
+    line-height: 1.32;
+  }
+
+  /* Skill section */
+  .skills-section-head {
+    margin-top: 22px;
+  }
+
+  .skills-section-head h2 {
+    margin-top: 9px;
+    font-size: 1.18rem;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+  }
+
+  .skills-group-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .skills-group-card {
+    min-height: auto;
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .skills-group-card::before,
+  .skills-capability-card::before,
+  .skills-learning-card::before {
+    left: 18px;
+    right: 18px;
+  }
+
+  .skills-group-card h3 {
+    margin-top: 10px;
+    font-size: 1.12rem;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+  }
+
+  .skills-group-card > p:not(.skills-group-label) {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    line-height: 1.56;
+  }
+
+  .skills-chip-list {
+    gap: 7px;
+    margin-top: 14px;
+  }
+
+  .skills-chip-list span {
+    padding: 6px 9px;
+    font-size: 0.62rem;
+  }
+
+  .skills-used-in {
+    margin-top: 16px;
+    padding-top: 14px;
+  }
+
+  .skills-used-in strong {
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+  }
+
+  .skills-used-in div {
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .skills-used-in span {
+    padding: 6px 9px;
+    font-size: 0.62rem;
+  }
+
+  /* Bottom content */
+  .skills-content-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .skills-capability-card,
+  .skills-learning-card {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .skills-capability-card h2,
+  .skills-learning-card h2 {
+    margin-top: 9px;
+    font-size: 1.14rem;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+  }
+
+  .skills-capability-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .skills-capability-list section {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .skills-capability-list span {
+    font-size: 0.78rem;
+  }
+
+  .skills-capability-list p {
+    margin-top: 8px;
+    font-size: 0.74rem;
+    line-height: 1.5;
+  }
+
+  .skills-learning-card ul {
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .skills-learning-card li {
+    padding-left: 18px;
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+
+  .skills-learning-card li::before {
+    top: 0.56em;
+    width: 6px;
+    height: 6px;
+  }
+
+  /* =========================
+   MOBILE EXPERIENCE
+   Compact premium layout
+  ========================= */
+
+  .experience-page {
+    padding-top: 88px;
+    padding-bottom: 56px;
+  }
+
+  .experience-hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .experience-hero-copy {
+    min-width: 0;
+  }
+
+  .experience-page .inner-eyebrow {
+    margin-bottom: 10px;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+  }
+
+  .experience-title {
+    max-width: 100%;
+    font-size: clamp(1.62rem, 7.8vw, 2.18rem);
+    line-height: 1.02;
+    letter-spacing: -0.052em;
+  }
+
+  .experience-page .inner-description {
+    max-width: 100%;
+    margin-top: 13px;
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  /* Overview card */
+  .experience-overview-card {
+    width: 100%;
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .experience-overview-card::before {
+    inset: -72px auto auto -72px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .experience-card-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.17em;
+  }
+
+  .experience-overview-card h2 {
+    margin-top: 9px;
+    font-size: 1.18rem;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+  }
+
+  .experience-overview-card p:not(.experience-card-label) {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    line-height: 1.56;
+  }
+
+  .experience-orbit-tags {
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  .experience-orbit-tags span {
+    padding: 6px 9px;
+    font-size: 0.62rem;
+  }
+
+  /* Stats */
+  .experience-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .experience-stat-card {
+    min-height: 82px;
+    padding: 14px;
+    border-radius: 20px;
+  }
+
+  .experience-stat-card strong {
+    font-size: 1.32rem;
+  }
+
+  .experience-stat-card span {
+    margin-top: 7px;
+    font-size: 0.7rem;
+    line-height: 1.32;
+  }
+
+  /* Timeline section */
+  .experience-section-head {
+    margin-top: 22px;
+  }
+
+  .experience-section-head h2 {
+    margin-top: 9px;
+    font-size: 1.18rem;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+  }
+
+  .experience-timeline {
+    position: relative;
+    display: grid;
+    gap: 24px;
+    margin-top: 14px;
+    padding-left: 0;
+    overflow: visible;
+  }
+
+  .experience-timeline::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    left: 17px;
+    display: block;
+    width: 1px;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(167, 139, 250, 0.48),
+      transparent
+    );
+  }
+
+  .experience-timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 10px;
+    min-height: clamp(380px, 56svh, 500px);
+    align-items: start;
+    overflow: visible;
+  }
+
+  .experience-timeline-marker {
+    position: sticky;
+    top: 76px;
+    z-index: 5;
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    align-self: start;
+    border: 1px solid rgba(199, 183, 255, 0.34);
+    border-radius: 999px;
+    background:
+      radial-gradient(circle at 50% 35%, rgba(167, 139, 250, 0.28), transparent 58%),
+      rgba(12, 17, 34, 0.98);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 0 18px rgba(167, 139, 250, 0.16);
+  }
+
+  .experience-timeline-marker::after {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    z-index: -1;
+    border-radius: 999px;
+    background: rgba(7, 10, 18, 0.88);
+    box-shadow: 0 0 18px rgba(7, 10, 18, 0.7);
+    pointer-events: none;
+  }
+
+  .experience-timeline-marker span {
+    color: #ffffff;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.68rem;
+    font-weight: 900;
+    line-height: 1;
+    text-shadow: 0 0 12px rgba(167, 139, 250, 0.52);
+  }
+
+  .experience-timeline-card {
+    align-self: start;
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .experience-timeline-card::before,
+  .experience-process-card::before,
+  .experience-values-card::before {
+    left: 18px;
+    right: 18px;
+  }
+
+  .experience-timeline-meta {
+    gap: 6px;
+  }
+
+  .experience-timeline-meta span,
+  .experience-stack-list span {
+    padding: 6px 9px;
+    font-size: 0.6rem;
+  }
+
+  .experience-timeline-card h3 {
+    margin-top: 12px;
+    font-size: 1.12rem;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+  }
+
+  .experience-timeline-card > p {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    line-height: 1.56;
+  }
+
+  .experience-stack-list {
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  .experience-timeline-card ul {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 14px;
+    padding-top: 14px;
+  }
+
+  .experience-timeline-card li {
+    padding-left: 18px;
+    font-size: 0.74rem;
+    line-height: 1.46;
+  }
+
+  .experience-timeline-card li::before {
+    top: 0.56em;
+    width: 6px;
+    height: 6px;
+  }
+
+  /* Process & values */
+  .experience-content-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .experience-process-card,
+  .experience-values-card {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .experience-process-card h2,
+  .experience-values-card h2 {
+    margin-top: 9px;
+    font-size: 1.14rem;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+  }
+
+  .experience-process-grid {
+    display: grid;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .experience-process-grid section {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 10px;
+    min-height: auto;
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .experience-process-grid span {
+    width: 32px;
+    height: 32px;
+    font-size: 0.68rem;
+  }
+
+  .experience-process-grid h3 {
+    min-height: 32px;
+    font-size: 0.86rem;
+    line-height: 1.12;
+  }
+
+  .experience-process-grid section p {
+    grid-column: 1 / -1;
+    font-size: 0.74rem;
+    line-height: 1.5;
+  }
+
+  .experience-values-card ul {
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .experience-values-card li {
+    padding-left: 18px;
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+
+  .experience-values-card li::before {
+    top: 0.56em;
+    width: 6px;
+    height: 6px;
+  }
+
+  /* =========================
+   MOBILE LEARNING
+   Compact premium layout
+  ========================= */
+
+  .learning-page {
+    padding-top: 88px;
+    padding-bottom: 56px;
+  }
+
+  .learning-hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .learning-hero-copy {
+    min-width: 0;
+  }
+
+  .learning-page .inner-eyebrow {
+    margin-bottom: 10px;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+  }
+
+  .learning-title {
+    max-width: 100%;
+    font-size: clamp(1.62rem, 7.8vw, 2.18rem);
+    line-height: 1.02;
+    letter-spacing: -0.052em;
+  }
+
+  .learning-page .inner-description {
+    max-width: 100%;
+    margin-top: 13px;
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  /* Overview card */
+  .learning-overview-card {
+    width: 100%;
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .learning-overview-card::before {
+    inset: -72px auto auto -72px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .learning-card-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.17em;
+  }
+
+  .learning-overview-card h2 {
+    margin-top: 9px;
+    font-size: 1.18rem;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+  }
+
+  .learning-overview-card p:not(.learning-card-label) {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    line-height: 1.56;
+  }
+
+  .learning-orbit-tags {
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  .learning-orbit-tags span {
+    padding: 6px 9px;
+    font-size: 0.62rem;
+  }
+
+  /* Stats */
+  .learning-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .learning-stat-card {
+    min-height: 82px;
+    padding: 14px;
+    border-radius: 20px;
+  }
+
+  .learning-stat-card strong {
+    font-size: 1.32rem;
+  }
+
+  .learning-stat-card span {
+    margin-top: 7px;
+    font-size: 0.7rem;
+    line-height: 1.32;
+  }
+
+  /* Learning path */
+  .learning-section-head {
+    margin-top: 22px;
+  }
+
+  .learning-section-head h2 {
+    margin-top: 9px;
+    font-size: 1.18rem;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+  }
+
+  .learning-path-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .learning-path-card,
+  .learning-path-card:nth-child(5) {
+    grid-column: auto;
+    min-height: auto;
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .learning-path-head {
+    gap: 10px;
+  }
+
+  .learning-path-head span {
+    width: 34px;
+    height: 34px;
+    font-size: 0.7rem;
+  }
+
+  .learning-path-head p {
+    font-size: 0.58rem;
+    letter-spacing: 0.17em;
+  }
+
+  .learning-path-card h3 {
+    margin-top: 13px;
+    font-size: 1.12rem;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+  }
+
+  .learning-path-card > p {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    line-height: 1.56;
+  }
+
+  .learning-topic-list {
+    gap: 7px;
+    margin-top: 14px;
+  }
+
+  .learning-topic-list span,
+  .learning-evidence span {
+    padding: 6px 9px;
+    font-size: 0.62rem;
+  }
+
+  .learning-evidence {
+    margin-top: 16px;
+    padding-top: 14px;
+  }
+
+  .learning-evidence strong {
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+  }
+
+  .learning-evidence div {
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  /* Foundation & principle */
+  .learning-content-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .learning-foundation-card,
+  .learning-principle-card {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .learning-foundation-card h2,
+  .learning-principle-card h2 {
+    margin-top: 9px;
+    font-size: 1.14rem;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+  }
+
+  .learning-foundation-list {
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .learning-foundation-list section {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .learning-foundation-list span {
+    font-size: 0.78rem;
+  }
+
+  .learning-foundation-list p {
+    margin-top: 8px;
+    font-size: 0.74rem;
+    line-height: 1.5;
+  }
+
+  .learning-principle-card ul {
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .learning-principle-card li {
+    padding-left: 18px;
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+
+  .learning-principle-card li::before {
+    top: 0.56em;
+    width: 6px;
+    height: 6px;
+  }
+
+  /* =========================
+    MOBILE CONTACT
+    Compact premium layout
+  ========================= */
+
+  .contact-page {
+    padding-top: 88px;
+    padding-bottom: 56px;
+  }
+
+  .contact-hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .contact-hero-copy {
+    min-width: 0;
+  }
+
+  .contact-page .inner-eyebrow {
+    margin-bottom: 10px;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+  }
+
+  .contact-title {
+    max-width: 100%;
+    font-size: clamp(1.62rem, 7.8vw, 2.18rem);
+    line-height: 1.02;
+    letter-spacing: -0.052em;
+  }
+
+  .contact-page .inner-description {
+    max-width: 100%;
+    margin-top: 13px;
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  /* Overview card */
+  .contact-overview-card {
+    width: 100%;
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .contact-overview-card::before {
+    inset: -72px auto auto -72px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .contact-card-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.17em;
+  }
+
+  .contact-overview-card h2 {
+    margin-top: 9px;
+    font-size: 1.18rem;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+  }
+
+  .contact-overview-card p:not(.contact-card-label) {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    line-height: 1.56;
+  }
+
+  .contact-orbit-tags {
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  .contact-orbit-tags span {
+    padding: 6px 9px;
+    font-size: 0.62rem;
+  }
+
+  /* Contact channels */
+  .contact-channel-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .contact-channel-card {
+    grid-template-columns: 44px minmax(0, 1fr) 28px;
+    min-height: auto;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 22px;
+  }
+
+  .contact-channel-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 15px;
+  }
+
+  .contact-channel-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .contact-channel-content {
+    min-width: 0;
+  }
+
+  .contact-channel-content p {
+    font-size: 0.58rem;
+    letter-spacing: 0.17em;
+  }
+
+  .contact-channel-content h2 {
+    margin-top: 5px;
+    font-size: 1.02rem;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  .contact-channel-content span,
+  .contact-channel-content small {
+    display: block;
+    max-width: 100%;
+    word-break: break-word;
+  }
+
+  .contact-channel-content span {
+    margin-top: 6px;
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+
+  .contact-channel-content small {
+    margin-top: 4px;
+    font-size: 0.66rem;
+    line-height: 1.4;
+  }
+
+  .contact-channel-arrow {
+    width: 28px;
+    height: 28px;
+    align-self: center;
+  }
+
+  /* Collaboration + note */
+  .contact-content-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .contact-collaboration-card,
+  .contact-note-card {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .contact-collaboration-card::before,
+  .contact-note-card::before,
+  .contact-closing-card::before {
+    left: 18px;
+    right: 18px;
+  }
+
+  .contact-collaboration-card h2,
+  .contact-note-card h2 {
+    margin-top: 9px;
+    font-size: 1.14rem;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+  }
+
+  .contact-collaboration-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .contact-collaboration-grid section {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .contact-collaboration-grid span {
+    font-size: 0.78rem;
+  }
+
+  .contact-collaboration-grid p {
+    margin-top: 8px;
+    font-size: 0.74rem;
+    line-height: 1.5;
+  }
+
+  .contact-note-card p:not(.contact-card-label) {
+    margin-top: 12px;
+    font-size: 0.76rem;
+    line-height: 1.56;
+  }
+
+  /* Closing */
+  .contact-closing-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 16px;
+    padding: 20px;
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .contact-closing-card h2 {
+    font-size: 1.24rem;
+    line-height: 1.12;
+    letter-spacing: -0.04em;
+  }
+
+  .contact-closing-card p {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    line-height: 1.56;
+  }
+
+  .contact-closing-button {
+    width: 100%;
+    min-height: 40px;
+    justify-content: center;
+    padding: 0 14px;
+    font-size: 0.76rem;
+  }
+
+  .contact-closing-spark {
+    right: 14px;
+    bottom: -34px;
+    width: 86px;
+    height: 86px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+   <= 480px
+========================= */
+
+@media (max-width: 480px) {
+  .inner-page-container {
+    width: min(100% - 24px, 100%);
+  }
+
+  .inner-page {
+    padding-top: 76px;
+  }
+
+  .inner-title,
+  .about-title,
+  .skills-title,
+  .experience-title,
+  .learning-title,
+  .contact-title {
+    font-size: clamp(1.86rem, 11vw, 2.55rem);
+  }
+
+  .inner-description {
+    font-size: 0.88rem;
+  }
+
+  .inner-navbar {
+    left: 10px;
+    right: 10px;
+    top: 10px;
+  }
+
+  .navbar-brand {
+    font-size: 0.72rem;
+  }
+
+  .navbar-cv span {
+    display: none;
+  }
+
+  .navbar-cv {
+    width: 34px;
+    padding: 0;
+  }
+
+  .home-content {
+    padding: 22px 12px 18px;
+    gap: 16px;
+  }
+
+  .home-title {
+    font-size: clamp(2.2rem, 13vw, 3rem);
+  }
+
+  .home-subtitle {
+    max-width: 310px;
+  }
+
+  .home-role-pill {
+    max-width: 330px;
+  }
+
+  .orbital-stage {
+    min-height: 530px;
+  }
+
+  .orbital-core {
+    width: 132px;
+    height: 132px;
+  }
+
+  .core-ring-two {
+    inset: 17px;
+  }
+
+  .core-ring-three {
+    inset: -12px;
+  }
+
+  .core-monogram {
+    font-size: 1.62rem;
+  }
+
+  .core-name {
+    font-size: 0.43rem;
+  }
+
+  .orbit-line-one {
+    width: 238px;
+    height: 238px;
+  }
+
+  .orbit-line-two {
+    width: 292px;
+    height: 292px;
+  }
+
+  .orbit-line-three {
+    width: 338px;
+    height: 338px;
+  }
+
+  .orbit-button-link {
+    width: 142px;
+    height: 56px;
+  }
+
+  .orbit-icon-wrap {
+    width: 39px;
+    height: 39px;
+    flex-basis: 39px;
+  }
+
+  .orbit-icon-wrap svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .orbit-label {
+    font-size: 0.73rem;
+  }
+
+  .orbit-top-left {
+    top: 58px;
+    left: 0;
+  }
+
+  .orbit-top-right {
+    top: 58px;
+    right: 0;
+  }
+
+  .orbit-middle-left {
+    top: 232px;
+    left: 0;
+  }
+
+  .orbit-middle-right {
+    top: 232px;
+    right: 0;
+  }
+
+  .orbit-bottom-left {
+    bottom: 58px;
+    left: 0;
+  }
+
+  .orbit-bottom-right {
+    bottom: 58px;
+    right: 0;
+  }
+
+  .about-stats-grid,
+  .skills-stats-grid,
+  .experience-stats-grid,
+  .learning-stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-profile-card,
+  .skills-overview-card,
+  .experience-overview-card,
+  .learning-overview-card,
+  .contact-overview-card,
+  .about-story-card,
+  .about-values-card,
+  .skills-capability-card,
+  .skills-learning-card,
+  .experience-process-card,
+  .experience-values-card,
+  .learning-foundation-card,
+  .learning-principle-card,
+  .contact-collaboration-card,
+  .contact-note-card,
+  .contact-closing-card {
+    padding: 22px;
+  }
+
+  .about-profile-orb {
+    width: 138px;
+    height: 138px;
+  }
+
+  .about-profile-monogram {
+    font-size: 1.72rem;
+  }
+
+  .about-profile-name {
+    font-size: 0.45rem;
+    letter-spacing: 0.18em;
+  }
+
+  .project-card-visual {
+    min-height: 190px;
+  }
+
+  .project-card-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .project-detail-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact-channel-card {
+    grid-template-columns: 44px minmax(0, 1fr);
+  }
+
+  .contact-channel-arrow {
+    display: none;
+  }
+
+  .contact-channel-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* =========================
+   SMALL MOBILE ABOUT POLISH
+  ========================= */
+
+  .about-page {
+    padding-top: 86px;
+  }
+
+  .about-title {
+    font-size: clamp(1.5rem, 8.7vw, 2rem);
+    line-height: 1.03;
+  }
+
+  .about-page .inner-description {
+    font-size: 0.78rem;
+    line-height: 1.58;
+  }
+
+  .about-profile-card {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 12px;
+    padding: 16px;
+    border-radius: 22px;
+  }
+
+  .about-profile-orb {
+    width: 96px;
+    height: 96px;
+  }
+
+  .about-profile-monogram {
+    font-size: 1.18rem;
+  }
+
+  .about-profile-name {
+    font-size: 0.31rem;
+    letter-spacing: 0.14em;
+  }
+
+  .about-profile-card h2 {
+    font-size: 0.98rem;
+  }
+
+  .about-profile-card p:last-of-type {
+    font-size: 0.68rem;
+  }
+
+  .about-profile-tags {
+    gap: 5px;
+    margin-top: 9px;
+  }
+
+  .about-profile-tags span {
+    padding: 5px 7px;
+    font-size: 0.56rem;
+  }
+
+  .about-stat-card {
+    min-height: 78px;
+    padding: 13px;
+  }
+
+  .about-stat-card strong {
+    font-size: 1.22rem;
+  }
+
+  .about-stat-card span {
+    font-size: 0.66rem;
+  }
+
+  .about-story-card,
+  .about-values-card,
+  .about-focus-card {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .about-story-card h2,
+  .about-values-card h2,
+  .about-section-head h2 {
+    font-size: 1.04rem;
+  }
+
+  .about-story-card p:not(.about-section-label),
+  .about-values-card li,
+  .about-focus-card p {
+    font-size: 0.74rem;
+  }
+
+  .about-focus-card h3 {
+    font-size: 0.96rem;
+  }
+
+  /* =========================
+   SMALL MOBILE PROJECTS POLISH
+  ========================= */
+
+  .project-archive-page {
+    padding-top: 86px;
+  }
+
+  .project-archive-page .inner-title {
+    font-size: clamp(1.5rem, 8.7vw, 2rem);
+    line-height: 1.03;
+  }
+
+  .project-archive-page .inner-description {
+    font-size: 0.78rem;
+    line-height: 1.58;
+  }
+
+  .project-archive-summary {
+    padding: 16px;
+    border-radius: 22px;
+  }
+
+  .project-archive-summary span {
+    font-size: 1.72rem;
+  }
+
+  .project-archive-summary p {
+    font-size: 0.72rem;
+  }
+
+  .project-grid {
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .project-card {
+    border-radius: 22px;
+  }
+
+  .project-card-visual {
+    height: 150px;
+    min-height: 150px;
+  }
+
+  .project-card-content {
+    padding: 16px;
+  }
+
+  .project-card-content h2 {
+    font-size: 1.12rem;
+  }
+
+  .project-card-content p {
+    font-size: 0.74rem;
+  }
+
+  .project-stack span {
+    font-size: 0.6rem;
+  }
+
+  .project-highlights li {
+    font-size: 0.7rem;
+  }
+
+  .project-detail-button {
+    min-height: 38px;
+    font-size: 0.72rem;
+  }
+
+  .study-modal-overlay {
+    padding: 10px;
+  }
+
+  .study-modal-card {
+    border-radius: 24px;
+  }
+
+  .study-modal-preview {
+    grid-template-rows: 170px auto;
+    min-height: 170px;
+    padding: 14px;
+  }
+
+  .study-modal-content {
+    max-height: calc(100svh - 226px);
+    padding: 18px;
+  }
+
+  .study-modal-content h2 {
+    font-size: clamp(1.36rem, 8.4vw, 1.82rem);
+  }
+
+  .study-modal-description,
+  .study-modal-grid p,
+  .study-modal-grid li {
+    font-size: 0.72rem;
+  }
+
+  .study-modal-grid section {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  /* =========================
+   SMALL MOBILE SKILLS POLISH
+  ========================= */
+
+  .skills-page {
+    padding-top: 86px;
+  }
+
+  .skills-title {
+    font-size: clamp(1.5rem, 8.7vw, 2rem);
+    line-height: 1.03;
+  }
+
+  .skills-page .inner-description {
+    font-size: 0.78rem;
+    line-height: 1.58;
+  }
+
+  .skills-overview-card {
+    padding: 16px;
+    border-radius: 22px;
+  }
+
+  .skills-overview-card h2 {
+    font-size: 1.06rem;
+  }
+
+  .skills-overview-card p:not(.skills-card-label) {
+    font-size: 0.74rem;
+  }
+
+  .skills-orbit-tags span,
+  .skills-chip-list span,
+  .skills-used-in span {
+    padding: 5px 8px;
+    font-size: 0.58rem;
+  }
+
+  .skills-stat-card {
+    min-height: 78px;
+    padding: 13px;
+  }
+
+  .skills-stat-card strong {
+    font-size: 1.22rem;
+  }
+
+  .skills-stat-card span {
+    font-size: 0.66rem;
+  }
+
+  .skills-section-head h2,
+  .skills-group-card h3,
+  .skills-capability-card h2,
+  .skills-learning-card h2 {
+    font-size: 1.02rem;
+  }
+
+  .skills-group-card,
+  .skills-capability-card,
+  .skills-learning-card {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .skills-group-card > p:not(.skills-group-label),
+  .skills-capability-list p,
+  .skills-learning-card li {
+    font-size: 0.72rem;
+  }
+
+  .skills-capability-list section {
+    padding: 13px;
+    border-radius: 17px;
+  }
+
+  /* =========================
+   SMALL MOBILE EXPERIENCE POLISH
+  ========================= */
+
+  .experience-page {
+    padding-top: 86px;
+  }
+
+  .experience-title {
+    font-size: clamp(1.5rem, 8.7vw, 2rem);
+    line-height: 1.03;
+  }
+
+  .experience-page .inner-description {
+    font-size: 0.78rem;
+    line-height: 1.58;
+  }
+
+  .experience-overview-card {
+    padding: 16px;
+    border-radius: 22px;
+  }
+
+  .experience-overview-card h2 {
+    font-size: 1.06rem;
+  }
+
+  .experience-overview-card p:not(.experience-card-label) {
+    font-size: 0.74rem;
+  }
+
+  .experience-orbit-tags span,
+  .experience-timeline-meta span,
+  .experience-stack-list span {
+    padding: 5px 8px;
+    font-size: 0.56rem;
+  }
+
+  .experience-stat-card {
+    min-height: 78px;
+    padding: 13px;
+  }
+
+  .experience-stat-card strong {
+    font-size: 1.22rem;
+  }
+
+  .experience-stat-card span {
+    font-size: 0.66rem;
+  }
+
+  .experience-section-head h2,
+  .experience-timeline-card h3,
+  .experience-process-card h2,
+  .experience-values-card h2 {
+    font-size: 1.02rem;
+  }
+
+  .experience-timeline {
+    gap: 22px;
+    overflow: visible;
+  }
+
+  .experience-timeline::before {
+    left: 15.5px;
+  }
+
+  .experience-timeline-item {
+    grid-template-columns: 31px minmax(0, 1fr);
+    gap: 9px;
+    min-height: clamp(380px, 56svh, 470px);
+    overflow: visible;
+  }
+
+  .experience-timeline-marker {
+    top: 74px;
+    width: 31px;
+    height: 31px;
+  }
+
+  .experience-timeline-marker span {
+    font-size: 0.62rem;
+  }
+
+  .experience-timeline-card,
+  .experience-process-card,
+  .experience-values-card {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .experience-timeline-card > p,
+  .experience-timeline-card li,
+  .experience-process-grid section p,
+  .experience-values-card li {
+    font-size: 0.72rem;
+  }
+
+  .experience-process-grid section {
+    grid-template-columns: 31px minmax(0, 1fr);
+    padding: 13px;
+    border-radius: 17px;
+  }
+
+  .experience-process-grid span {
+    width: 30px;
+    height: 30px;
+    font-size: 0.62rem;
+  }
+
+  .experience-process-grid h3 {
+    min-height: 30px;
+    font-size: 0.8rem;
+  }
+
+  /* =========================
+   SMALL MOBILE LEARNING POLISH
+  ========================= */
+
+  .learning-page {
+    padding-top: 86px;
+  }
+
+  .learning-title {
+    font-size: clamp(1.5rem, 8.7vw, 2rem);
+    line-height: 1.03;
+  }
+
+  .learning-page .inner-description {
+    font-size: 0.78rem;
+    line-height: 1.58;
+  }
+
+  .learning-overview-card {
+    padding: 16px;
+    border-radius: 22px;
+  }
+
+  .learning-overview-card h2 {
+    font-size: 1.06rem;
+  }
+
+  .learning-overview-card p:not(.learning-card-label) {
+    font-size: 0.74rem;
+  }
+
+  .learning-orbit-tags span,
+  .learning-topic-list span,
+  .learning-evidence span {
+    padding: 5px 8px;
+    font-size: 0.58rem;
+  }
+
+  .learning-stat-card {
+    min-height: 78px;
+    padding: 13px;
+  }
+
+  .learning-stat-card strong {
+    font-size: 1.22rem;
+  }
+
+  .learning-stat-card span {
+    font-size: 0.66rem;
+  }
+
+  .learning-section-head h2,
+  .learning-path-card h3,
+  .learning-foundation-card h2,
+  .learning-principle-card h2 {
+    font-size: 1.02rem;
+  }
+
+  .learning-path-card,
+  .learning-foundation-card,
+  .learning-principle-card {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .learning-path-head span {
+    width: 31px;
+    height: 31px;
+    font-size: 0.62rem;
+  }
+
+  .learning-path-head p {
+    font-size: 0.56rem;
+  }
+
+  .learning-path-card > p,
+  .learning-foundation-list p,
+  .learning-principle-card li {
+    font-size: 0.72rem;
+  }
+
+  .learning-foundation-list section {
+    padding: 13px;
+    border-radius: 17px;
+  }
+
+  /* =========================
+    SMALL MOBILE CONTACT POLISH
+  ========================= */
+
+  .contact-page {
+    padding-top: 86px;
+  }
+
+  .contact-title {
+    font-size: clamp(1.5rem, 8.7vw, 2rem);
+    line-height: 1.03;
+  }
+
+  .contact-page .inner-description {
+    font-size: 0.78rem;
+    line-height: 1.58;
+  }
+
+  .contact-overview-card {
+    padding: 16px;
+    border-radius: 22px;
+  }
+
+  .contact-overview-card h2 {
+    font-size: 1.06rem;
+  }
+
+  .contact-overview-card p:not(.contact-card-label) {
+    font-size: 0.74rem;
+  }
+
+  .contact-orbit-tags span {
+    padding: 5px 8px;
+    font-size: 0.58rem;
+  }
+
+  .contact-channel-grid {
+    gap: 11px;
+    margin-top: 18px;
+  }
+
+  .contact-channel-card {
+    grid-template-columns: 40px minmax(0, 1fr) 24px;
+    gap: 11px;
+    padding: 15px;
+    border-radius: 20px;
+  }
+
+  .contact-channel-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+  }
+
+  .contact-channel-content h2 {
+    font-size: 0.96rem;
+  }
+
+  .contact-channel-content span {
+    font-size: 0.68rem;
+  }
+
+  .contact-channel-content small {
+    font-size: 0.62rem;
+  }
+
+  .contact-channel-arrow {
+    width: 24px;
+    height: 24px;
+  }
+
+  .contact-collaboration-card,
+  .contact-note-card {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .contact-collaboration-card h2,
+  .contact-note-card h2 {
+    font-size: 1.02rem;
+  }
+
+  .contact-collaboration-grid section {
+    padding: 13px;
+    border-radius: 17px;
+  }
+
+  .contact-collaboration-grid p,
+  .contact-note-card p:not(.contact-card-label) {
+    font-size: 0.72rem;
+  }
+
+  .contact-closing-card {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .contact-closing-card h2 {
+    font-size: 1.08rem;
+  }
+
+  .contact-closing-card p {
+    font-size: 0.72rem;
+  }
+
+  .contact-closing-button {
+    min-height: 38px;
+    font-size: 0.72rem;
+  }
+
+  .contact-closing-spark {
+    right: 12px;
+    bottom: -32px;
+    width: 78px;
+    height: 78px;
+  }
+}
+
+/* =========================
+   EXTRA SMALL MOBILE
+   <= 360px
+========================= */
+
+@media (max-width: 360px) {
+  .inner-page-container {
+    width: min(100% - 20px, 100%);
+  }
+
+  .home-title {
+    font-size: 2.05rem;
+  }
+
+  .home-subtitle {
+    max-width: 292px;
+    font-size: 0.82rem;
+  }
+
+  .home-role-pill {
+    max-width: 300px;
+    font-size: 0.7rem;
+  }
+
+  .orbital-stage {
+    min-height: 500px;
+  }
+
+  .orbital-core {
+    width: 122px;
+    height: 122px;
+  }
+
+  .core-monogram {
+    font-size: 1.48rem;
+  }
+
+  .core-name {
+    font-size: 0.39rem;
+    letter-spacing: 0.16em;
+  }
+
+  .orbit-line-one {
+    width: 218px;
+    height: 218px;
+  }
+
+  .orbit-line-two {
+    width: 268px;
+    height: 268px;
+  }
+
+  .orbit-line-three {
+    width: 312px;
+    height: 312px;
+  }
+
+  .orbit-button-link {
+    width: 132px;
+    height: 52px;
+    gap: 7px;
+    padding: 6px 8px 6px 6px;
+  }
+
+  .orbit-icon-wrap {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
+  .orbit-label {
+    font-size: 0.68rem;
+  }
+
+  .orbit-top-left,
+  .orbit-top-right {
+    top: 58px;
+  }
+
+  .orbit-middle-left,
+  .orbit-middle-right {
+    top: 220px;
+  }
+
+  .orbit-bottom-left,
+  .orbit-bottom-right {
+    bottom: 58px;
+  }
+
+  .about-stats-grid,
+  .skills-stats-grid,
+  .experience-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .learning-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* =========================
+   EXTRA SMALL ABOUT
+  ========================= */
+
+  .about-title {
+    font-size: 1.42rem;
+  }
+
+  .about-profile-card {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .about-profile-orb {
+    width: 128px;
+    height: 128px;
+  }
+
+  .about-profile-content {
+    text-align: center;
+  }
+
+  .about-profile-tags {
+    justify-content: center;
+  }
+
+  .about-stat-card {
+    min-height: 74px;
+    padding: 12px;
+  }
+
+  .about-stat-card strong {
+    font-size: 1.12rem;
+  }
+
+  .about-stat-card span {
+    font-size: 0.62rem;
+  }
+
+  /* =========================
+   EXTRA SMALL PROJECTS
+  ========================= */
+
+  .project-archive-page .inner-title {
+    font-size: 1.42rem;
+  }
+
+  .project-card-visual {
+    height: 138px;
+    min-height: 138px;
+  }
+
+  .project-card-content {
+    padding: 14px;
+  }
+
+  .project-card-content h2 {
+    font-size: 1.04rem;
+  }
+
+  .project-card-content p,
+  .project-highlights li {
+    font-size: 0.68rem;
+  }
+
+  .project-stack span {
+    padding: 5px 8px;
+    font-size: 0.56rem;
+  }
+
+  .study-modal-preview {
+    grid-template-rows: 150px auto;
+    min-height: 150px;
+  }
+
+  .study-modal-content {
+    max-height: calc(100svh - 205px);
+    padding: 16px;
+  }
+
+  /* =========================
+   EXTRA SMALL SKILLS
+  ========================= */
+
+  .skills-title {
+    font-size: 1.42rem;
+  }
+
+  .skills-stat-card {
+    min-height: 74px;
+    padding: 12px;
+  }
+
+  .skills-stat-card strong {
+    font-size: 1.12rem;
+  }
+
+  .skills-stat-card span {
+    font-size: 0.62rem;
+  }
+
+  .skills-overview-card,
+  .skills-group-card,
+  .skills-capability-card,
+  .skills-learning-card {
+    padding: 14px;
+  }
+
+  .skills-group-card h3,
+  .skills-capability-card h2,
+  .skills-learning-card h2 {
+    font-size: 0.96rem;
+  }
+
+  .skills-group-card > p:not(.skills-group-label),
+  .skills-capability-list p,
+  .skills-learning-card li {
+    font-size: 0.68rem;
+  }
+
+  /* =========================
+   EXTRA SMALL EXPERIENCE
+  ========================= */
+
+  .experience-title {
+    font-size: 1.42rem;
+  }
+
+  .experience-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .experience-stat-card {
+    min-height: 74px;
+    padding: 12px;
+  }
+
+  .experience-stat-card strong {
+    font-size: 1.12rem;
+  }
+
+  .experience-stat-card span {
+    font-size: 0.62rem;
+  }
+
+  .experience-overview-card,
+  .experience-timeline-card,
+  .experience-process-card,
+  .experience-values-card {
+    padding: 14px;
+  }
+
+  .experience-timeline {
+    gap: 20px;
+  }
+
+  .experience-timeline::before {
+    left: 14px;
+  }
+
+  .experience-timeline-item {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 8px;
+    min-height: clamp(360px, 54svh, 440px);
+  }
+
+  .experience-timeline-marker {
+    top: 72px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .experience-timeline-marker span {
+    font-size: 0.56rem;
+  }
+
+  .experience-timeline-card h3,
+  .experience-process-card h2,
+  .experience-values-card h2 {
+    font-size: 0.96rem;
+  }
+
+  .experience-timeline-card > p,
+  .experience-timeline-card li,
+  .experience-process-grid section p,
+  .experience-values-card li {
+    font-size: 0.68rem;
+  }
+
+  /* =========================
+   EXTRA SMALL LEARNING
+  ========================= */
+
+  .learning-title {
+    font-size: 1.42rem;
+  }
+
+  .learning-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .learning-stat-card {
+    min-height: 74px;
+    padding: 12px;
+  }
+
+  .learning-stat-card strong {
+    font-size: 1.12rem;
+  }
+
+  .learning-stat-card span {
+    font-size: 0.62rem;
+  }
+
+  .learning-overview-card,
+  .learning-path-card,
+  .learning-foundation-card,
+  .learning-principle-card {
+    padding: 14px;
+  }
+
+  .learning-path-head span {
+    width: 30px;
+    height: 30px;
+    font-size: 0.58rem;
+  }
+
+  .learning-path-card h3,
+  .learning-foundation-card h2,
+  .learning-principle-card h2 {
+    font-size: 0.96rem;
+  }
+
+  .learning-path-card > p,
+  .learning-foundation-list p,
+  .learning-principle-card li {
+    font-size: 0.68rem;
+  }
+
+  .learning-topic-list span,
+  .learning-evidence span {
+    padding: 5px 8px;
+    font-size: 0.56rem;
+  }
+
+  /* =========================
+    EXTRA SMALL CONTACT
+  ========================= */
+
+  .contact-title {
+    font-size: 1.42rem;
+  }
+
+  .contact-overview-card,
+  .contact-collaboration-card,
+  .contact-note-card,
+  .contact-closing-card {
+    padding: 14px;
+  }
+
+  .contact-channel-card {
+    grid-template-columns: 38px minmax(0, 1fr);
+    padding: 14px;
+  }
+
+  .contact-channel-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .contact-channel-arrow {
+    display: none;
+  }
+
+  .contact-channel-content h2 {
+    font-size: 0.9rem;
+  }
+
+  .contact-channel-content span {
+    font-size: 0.64rem;
+  }
+
+  .contact-channel-content small {
+    font-size: 0.6rem;
+  }
+
+  .contact-collaboration-card h2,
+  .contact-note-card h2,
+  .contact-closing-card h2 {
+    font-size: 0.96rem;
+  }
+
+  .contact-collaboration-grid p,
+  .contact-note-card p:not(.contact-card-label),
+  .contact-closing-card p {
+    font-size: 0.68rem;
+  }
+
+  .contact-closing-spark {
+    width: 68px;
+    height: 68px;
+  }
+}

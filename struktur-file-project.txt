@@ -1,0 +1,65 @@
+daffa-project-index/
+│
+├── public/
+│   ├── images/
+│   │   ├── space-bg.webp
+│   │   ├── profile.webp
+│   │   └── projects/
+│   │       ├── cashmate.webp
+│   │       ├── edulens.webp
+│   │       ├── k3connect.webp
+│   │       └── chatbot-baa.webp
+│   │
+│   └── cv/
+│       └── daffa-cv.pdf
+│
+├── src/
+│   ├── assets/
+│   │   └── icons/
+│   │       └── logo-dj.svg
+│   │
+│   ├── components/
+│   │   ├── Layout.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── LanguageToggle.jsx
+│   │   ├── OrbitalCore.jsx
+│   │   ├── OrbitButton.jsx
+│   │   ├── ProjectCard.jsx
+│   │   └── PageTransition.jsx
+│   │
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── About.jsx
+│   │   ├── Projects.jsx
+│   │   ├── Skills.jsx
+│   │   ├── Experience.jsx
+│   │   ├── Certificates.jsx
+│   │   └── Contact.jsx
+│   │
+│   ├── data/
+│   │   ├── projects.js
+│   │   ├── skills.js
+│   │   ├── experience.js
+│   │   ├── certificates.js
+│   │   └── translations.js
+│   │
+│   ├── animations/
+│   │   ├── motionVariants.js
+│   │   └── gsapEffects.js
+│   │
+│   ├── styles/
+│   │   ├── global.css
+│   │   ├── orbit.css
+│   │   └── animation.css
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── routes.jsx
+│
+├── requirements.txt
+├── package.json
+├── vite.config.js
+├── tailwind.config.js
+├── postcss.config.js
+├── index.html
+└── README.md

@@ -1,0 +1,351 @@
+PORTFOLIO WEBSITE REQUIREMENTS
+Project Name: Daffa Project Index
+Project Type: Static Interactive Portfolio Website
+Design Concept: Space-themed Interactive Portfolio Gateway / Orbital Navigation
+Language: Indonesian default, English translation available
+
+==================================================
+1. CORE FRONTEND TECHNOLOGY
+==================================================
+- React
+  Purpose:
+  Main frontend library for building reusable UI components.
+  Used for:
+  - Homepage interactive gateway
+  - Orbital navigation component
+  - Project archive pages
+  - About, skills, experience, certificate, and contact pages
+  - Language toggle ID/EN
+
+- Vite
+  Purpose:
+  Fast development server and build tool for React.
+  Used for:
+  - Local development
+  - Production build
+  - Static deployment output
+
+- JavaScript / JSX
+  Purpose:
+  Main programming language for UI logic and component behavior.
+  Used for:
+  - State management for menu open/close
+  - Hover and click interaction
+  - Language switching
+  - Project data rendering
+
+==================================================
+2. STYLING TECHNOLOGY
+==================================================
+- Tailwind CSS
+  Purpose:
+  Main utility-first CSS framework for styling.
+  Used for:
+  - Layout
+  - Spacing
+  - Typography
+  - Responsive design
+  - Glassmorphism panels
+  - Button states
+  - Dark cosmic theme styling
+
+- Custom CSS
+  Purpose:
+  Additional styling for unique visual effects not ideal to write fully in Tailwind.
+  Used for:
+  - Orbital rings
+  - Glow effects
+  - Background overlay
+  - Keyframe animations
+  - Custom hover effects
+  - Fine-tuned responsive adjustments
+
+==================================================
+3. ANIMATION TECHNOLOGY
+==================================================
+- Motion for React / Framer Motion
+  Purpose:
+  Main React animation library for UI transitions.
+  Used for:
+  - Initial page reveal
+  - Text fade-in
+  - Orbital core entrance animation
+  - Button expand animation
+  - Hover scale animation
+  - Page transitions
+  - AnimatePresence transitions between routes/components
+
+- GSAP
+  Purpose:
+  Advanced animation library for more complex motion.
+  Used for:
+  - Orbital ring animation
+  - Navigation node stagger animation
+  - Core activation glow
+  - Portal-like click transition
+  - Smooth timeline-based animation sequences
+
+==================================================
+4. ROUTING AND PAGE STRUCTURE
+==================================================
+- React Router
+  Purpose:
+  Client-side routing for multiple static portfolio pages.
+  Planned routes:
+  - /                 : Home / Interactive Gateway
+  - /about            : Tentang Saya
+  - /projects         : Project Archive
+  - /projects/:slug   : Project Detail / Case Study
+  - /skills           : Keahlian
+  - /experience       : Pengalaman
+  - /certificates     : Sertifikat
+  - /contact          : Kontak
+
+==================================================
+5. ICONS AND UI ASSETS
+==================================================
+- Lucide React
+  Purpose:
+  Icon library for clean and consistent interface icons.
+  Used for:
+  - Tentang Saya icon
+  - Proyek icon
+  - Keahlian icon
+  - Pengalaman icon
+  - Sertifikat icon
+  - Kontak icon
+  - GitHub / LinkedIn / Email / Download CV icons
+
+- Custom SVG
+  Purpose:
+  Original vector elements for portfolio identity.
+  Used for:
+  - Orbital rings
+  - Personal monogram / DJ mark
+  - Decorative cosmic UI lines
+  - Custom navigation accents
+
+==================================================
+6. DATA STRUCTURE
+==================================================
+- Local JSON Files
+  Purpose:
+  Store static content and make the portfolio easier to maintain.
+  Planned files:
+  - src/data/projects.json
+  - src/data/skills.json
+  - src/data/experience.json
+  - src/data/certificates.json
+  - src/data/i18n/id.json
+  - src/data/i18n/en.json
+
+Used for:
+- Project list
+- Project detail content
+- Skill categories
+- Experience timeline
+- Certificate list
+- Indonesian and English text content
+
+==================================================
+7. INTERNATIONALIZATION / LANGUAGE
+==================================================
+- Manual ID/EN Translation using JSON
+  Purpose:
+  Keep the website bilingual without using a heavy translation library.
+  Default language:
+  - Bahasa Indonesia
+  Secondary language:
+  - English
+
+Planned feature:
+- ID / EN toggle button
+- Text content changes based on selected language
+- Language preference can optionally be saved in localStorage
+
+==================================================
+8. MEDIA AND IMAGE REQUIREMENTS
+==================================================
+- WebP / AVIF Images
+  Purpose:
+  Optimized image format for performance.
+  Used for:
+  - Space background image
+  - Project screenshots
+  - Mockup previews
+  - Certificate images
+
+- Image Optimization Rules
+  Requirements:
+  - Compress all large images before production
+  - Use WebP as default where possible
+  - Avoid oversized PNG/JPG files
+  - Use lazy loading for project images below the first screen
+
+==================================================
+9. DESIGN REQUIREMENTS
+==================================================
+- Homepage style:
+  Space-themed interactive gateway inspired by the interaction concept of ASN Digital, but visually original.
+
+- Main visual direction:
+  Dark cosmic background, orbital navigation, premium glassmorphism, glowing interface accents.
+
+- Homepage states:
+  1. Initial state:
+     - Headline visible
+     - Orbital core visible
+     - Quote visible
+     - Navigation buttons hidden
+
+  2. Active state:
+     - Orbital core glows brighter
+     - Orbit lines activate
+     - Six navigation buttons appear around the core
+
+- Main navigation buttons:
+  - Tentang Saya
+  - Proyek
+  - Keahlian
+  - Pengalaman
+  - Sertifikat
+  - Kontak
+
+- Avoid:
+  - Generic AI gradient style
+  - Excessive neon effects
+  - Copying ASN Digital colors, map, icons, or layout exactly
+  - Unnecessary buttons
+  - Heavy 3D effects
+  - Overcrowded particles
+
+==================================================
+10. RESPONSIVE REQUIREMENTS
+==================================================
+- Desktop:
+  - Full interactive orbital gateway
+  - Hover-based menu expansion
+  - Expanded navigation nodes around central core
+
+- Tablet:
+  - Simplified orbital layout
+  - Touch-friendly buttons
+  - Adjusted spacing
+
+- Mobile:
+  - Tap core to open navigation
+  - Navigation buttons displayed in a clean stacked or radial simplified layout
+  - Avoid hover-only interactions
+  - Maintain readability and performance
+
+==================================================
+11. PERFORMANCE REQUIREMENTS
+==================================================
+- Website must remain static and lightweight.
+- Avoid unnecessary backend.
+- Avoid heavy 3D/WebGL unless truly needed.
+- Optimize all images.
+- Use lazy loading for lower-priority assets.
+- Keep animation smooth but not excessive.
+- Ensure the first screen loads quickly.
+
+Recommended approach:
+- Use background image instead of real-time particle canvas.
+- Use CSS/SVG/Motion/GSAP for interactive orbital effects.
+- Do not use Three.js for the first version.
+
+==================================================
+12. DEPLOYMENT REQUIREMENTS
+==================================================
+- Cloudflare Pages
+  Purpose:
+  Main recommended hosting platform.
+  Build command:
+  npm run build
+  Output directory:
+  dist
+
+Alternative hosting:
+- Vercel
+- Netlify
+
+==================================================
+13. DEVELOPMENT TOOLS
+==================================================
+- Node.js
+  Required to run React + Vite project.
+
+- npm
+  Used for installing dependencies and running scripts.
+
+- Visual Studio Code
+  Recommended code editor.
+
+Recommended VS Code extensions:
+- ES7+ React/Redux/React-Native snippets
+- Tailwind CSS IntelliSense
+- Prettier
+- ESLint
+- Auto Rename Tag
+- Path Intellisense
+
+==================================================
+14. PROJECT INSTALLATION PLAN
+==================================================
+Initial setup commands:
+
+npm create vite@latest daffa-project-index -- --template react
+cd daffa-project-index
+npm install
+
+Install main dependencies:
+
+npm install tailwindcss @tailwindcss/vite
+npm install motion
+npm install gsap
+npm install react-router-dom
+npm install lucide-react
+
+Run development server:
+
+npm run dev
+
+Build production files:
+
+npm run build
+
+==================================================
+15. FINAL STACK SUMMARY
+==================================================
+Frontend:
+- React + Vite
+
+Styling:
+- Tailwind CSS + Custom CSS
+
+Animation:
+- Motion for React + GSAP
+
+Routing:
+- React Router
+
+Icons:
+- Lucide React + Custom SVG
+
+Data:
+- Local JSON
+
+Language:
+- Manual ID/EN translation using JSON
+
+Assets:
+- WebP / AVIF optimized images
+
+Hosting:
+- Cloudflare Pages
+
+Backend:
+- Not required for first version
+
+Database:
+- Not required for first version
