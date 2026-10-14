@@ -1,22 +1,32 @@
 import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { cvFeature } from "../src/config/siteFeatures.js";
 
-const cvPath = resolve("public/cv/daffa-cv.pdf");
+// Resolve from this module, not the shell's working directory.
+const cvFile = new URL(`../public${cvFeature.href}`, import.meta.url);
 let bytes;
 try {
-  bytes = readFileSync(cvPath);
-} catch {
-  console.error(`P0 BLOCKED: CV file missing: ${cvPath}`);
-  process.exitCode = 1;
+  bytes = readFileSync(cvFile);
+} catch (error) {
+  if (error?.code === "ENOENT" && !cvFeature.enabled) {
+    console.log("PASS: CV is intentionally unpublished; no PDF required.");
+  } else {
+    console.error(`FAIL: CV asset cannot be read (${error.message}).`);
+    process.exitCode = 1;
+  }
 }
 
+// Vite copies all files in public/, even if the UI hides their links.
+// Do not let an empty or malformed placeholder ship to production.
 if (bytes) {
   const header = bytes.subarray(0, 8).toString("ascii");
-  const tail = bytes.subarray(-1024).toString("latin1");
-  if (!header.startsWith("%PDF-") || !tail.includes("%%EOF")) {
-    console.error("P0 BLOCKED: CV file is empty or lacks a recognizable PDF header/trailer.");
+  const trailer = bytes.subarray(-1024).toString("latin1");
+  if (bytes.length < 128 || !header.startsWith("%PDF-") || !trailer.includes("%%EOF")) {
+    console.error("FAIL: CV PDF is empty or lacks a recognizable PDF header/trailer.");
     process.exitCode = 1;
   } else {
-    console.log(`PASS: CV appears to be a PDF (${bytes.length} bytes). Confirm it opens manually.`);
+    console.log(
+      `PASS: CV PDF has basic structural markers (${bytes.length} bytes); ${cvFeature.enabled ? "published" : "not yet linked"}.`,
+    );
+    console.log("NOTE: Open the PDF manually before publication; this is not a full PDF parser.");
   }
 }

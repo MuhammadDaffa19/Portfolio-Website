@@ -3301,3 +3301,19 @@
     height: 68px;
   }
 }
+
+/* CV publication is deferred. Use the freed navbar column rather than
+   leaving an invisible action slot on mobile. */
+.inner-navbar.is-cv-disabled {
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.inner-navbar.is-cv-disabled .navbar-links {
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .inner-navbar.is-cv-disabled {
+    grid-template-columns: minmax(0, 1fr) 38px;
+  }
+}

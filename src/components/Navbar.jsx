@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { ArrowLeft, Download, Menu, X } from "lucide-react";
 import { useLanguage } from "../context/useLanguage.js";
+import { cvFeature } from "../config/siteFeatures.js";
 
 const navItems = [
   { labelKey: "navbar.items.about", path: "/about" },
@@ -17,7 +18,7 @@ function NavbarContent() {
   const { t } = useLanguage();
 
   return (
-    <header className={`inner-navbar ${isMobileMenuOpen ? "is-menu-open" : ""}`}>
+    <header className={`inner-navbar ${isMobileMenuOpen ? "is-menu-open" : ""} ${cvFeature.enabled ? "" : "is-cv-disabled"}`}>
       <NavLink
         to="/"
         onClick={() => setIsMobileMenuOpen(false)}
@@ -46,12 +47,14 @@ function NavbarContent() {
         ))}
       </nav>
 
-      <div className="navbar-actions">
-        <a href="/cv/daffa-cv.pdf" className="navbar-cv">
-          <Download size={16} strokeWidth={1.8} />
-          <span>{t("navbar.cv")}</span>
-        </a>
-      </div>
+      {cvFeature.enabled && (
+        <div className="navbar-actions">
+          <a href={cvFeature.href} className="navbar-cv" download>
+            <Download size={16} strokeWidth={1.8} />
+            <span>{t("navbar.cv")}</span>
+          </a>
+        </div>
+      )}
 
       <button
         type="button"
