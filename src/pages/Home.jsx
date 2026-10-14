@@ -16,7 +16,7 @@ import OrbitButton from "../components/OrbitButton.jsx";
 
 import { fadeUp } from "../animations/motionVariants.js";
 import { orbitNavigation } from "../data/translations.js";
-import { useLanguage } from "../context/LanguageContext.jsx";
+import { useLanguage } from "../context/useLanguage.js";
 
 const mobileIconMap = {
   user: UserRound,
@@ -106,7 +106,7 @@ function Home() {
         label: t(item.labelKey, item.label),
         description: t(item.descriptionKey, item.description),
       })),
-    [language, t]
+    [t]
   );
 
   const topMobileNavigation = translatedOrbitNavigation.slice(0, 3);

@@ -4,14 +4,14 @@ import { X } from "lucide-react";
 
 import ProjectCard from "../components/ProjectCard.jsx";
 import { projects } from "../data/projects.js";
-import { useLanguage } from "../context/LanguageContext.jsx";
+import { useLanguage } from "../context/useLanguage.js";
 
 function Projects() {
   const [selectedProjectId, setSelectedProjectId] = useState(null);
   const [isImageViewerOpen, setIsImageViewerOpen] = useState(false);
   const modalContentRef = useRef(null);
 
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
 
   const translatedProjects = useMemo(
     () =>
@@ -34,7 +34,7 @@ function Projects() {
             : project.features,
         };
       }),
-    [language, t]
+    [t]
   );
 
   const selectedProject = useMemo(

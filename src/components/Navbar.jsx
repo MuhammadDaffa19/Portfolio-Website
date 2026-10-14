@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { ArrowLeft, Download, Menu, X } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext.jsx";
+import { useLanguage } from "../context/useLanguage.js";
 
 const navItems = [
   { labelKey: "navbar.items.about", path: "/about" },
@@ -12,19 +12,15 @@ const navItems = [
   { labelKey: "navbar.items.contact", path: "/contact" },
 ];
 
-function Navbar() {
+function NavbarContent() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
   const { t } = useLanguage();
-
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location.pathname]);
 
   return (
     <header className={`inner-navbar ${isMobileMenuOpen ? "is-menu-open" : ""}`}>
       <NavLink
         to="/"
+        onClick={() => setIsMobileMenuOpen(false)}
         className="navbar-brand"
         aria-label={t("navbar.backHome")}
       >
@@ -40,6 +36,7 @@ function Navbar() {
           <NavLink
             key={item.path}
             to={item.path}
+            onClick={() => setIsMobileMenuOpen(false)}
             className={({ isActive }) =>
               `navbar-link ${isActive ? "is-active" : ""}`
             }
@@ -73,6 +70,11 @@ function Navbar() {
       </button>
     </header>
   );
+}
+
+function Navbar() {
+  const { pathname } = useLocation();
+  return <NavbarContent key={pathname} />;
 }
 
 export default Navbar;
