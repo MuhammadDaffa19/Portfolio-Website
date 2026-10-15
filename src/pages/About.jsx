@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLanguage } from "../context/LanguageContext.jsx";
+import { useLanguage } from "../context/useLanguage.js";
 
 function About() {
   const [isProfilePhotoLocked, setIsProfilePhotoLocked] = useState(false);

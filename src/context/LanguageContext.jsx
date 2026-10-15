@@ -1,7 +1,6 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { translations } from "../data/translations.js";
-
-const LanguageContext = createContext(null);
+import { LanguageContext } from "./languageContext.js";
 
 const DEFAULT_LANGUAGE = "id";
 const STORAGE_KEY = "daffa-project-index-language";
@@ -59,14 +58,4 @@ export function LanguageProvider({ children }) {
       {children}
     </LanguageContext.Provider>
   );
-}
-
-export function useLanguage() {
-  const context = useContext(LanguageContext);
-
-  if (!context) {
-    throw new Error("useLanguage must be used inside LanguageProvider");
-  }
-
-  return context;
 }

@@ -1,5 +1,5 @@
 import { Languages } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext.jsx";
+import { useLanguage } from "../context/useLanguage.js";
 
 function LanguageToggle() {
   const { language, setLanguage, t } = useLanguage();
@@ -7,6 +7,7 @@ function LanguageToggle() {
   return (
     <div
       className="language-toggle-floating"
+      role="group"
       aria-label={t("language.ariaLabel")}
     >
       <div className="language-toggle-shell">
@@ -16,6 +17,7 @@ function LanguageToggle() {
           <button
             type="button"
             className={language === "id" ? "is-active" : ""}
+            aria-pressed={language === "id"}
             onClick={() => setLanguage("id")}
             aria-label={t("language.switchToIndonesian")}
           >
@@ -27,6 +29,7 @@ function LanguageToggle() {
           <button
             type="button"
             className={language === "en" ? "is-active" : ""}
+            aria-pressed={language === "en"}
             onClick={() => setLanguage("en")}
             aria-label={t("language.switchToEnglish")}
           >

@@ -265,6 +265,7 @@
 
     backdrop-filter: none;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
     transform: translateY(-8px) scale(0.98);
     transform-origin: top center;
@@ -303,6 +304,7 @@
 
   .navbar-links.is-open {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
     transform: translateY(0) scale(1);
   }
@@ -3299,5 +3301,21 @@
   .contact-closing-spark {
     width: 68px;
     height: 68px;
+  }
+}
+
+/* CV publication is deferred. Use the freed navbar column rather than
+   leaving an invisible action slot on mobile. */
+.inner-navbar.is-cv-disabled {
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.inner-navbar.is-cv-disabled .navbar-links {
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .inner-navbar.is-cv-disabled {
+    grid-template-columns: minmax(0, 1fr) 38px;
   }
 }

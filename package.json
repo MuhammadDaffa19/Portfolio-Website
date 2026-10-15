@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:smoke": "node --test tests/*.test.mjs",
+    "check:assets": "node scripts/check-assets.mjs",
+    "verify": "npm run lint && npm run test:smoke && npm run check:assets && npm run build && npm run check:production",
+    "check:production": "node scripts/check-production.mjs"
   },
   "dependencies": {
     "gsap": "^3.15.0",

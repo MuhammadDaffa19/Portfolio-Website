@@ -1,5 +1,5 @@
 import { ArrowUpRight, Mail, Sparkles } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext.jsx";
+import { useLanguage } from "../context/useLanguage.js";
 
 function Contact() {
   const { t } = useLanguage();

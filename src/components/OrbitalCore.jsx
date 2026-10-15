@@ -1,6 +1,10 @@
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
+import { useLanguage } from "../context/useLanguage.js";
 
 function OrbitalCore({ isOpen, onActivate, onToggle }) {
+  const reduceMotion = useReducedMotion();
+  const { t } = useLanguage();
+
   return (
     <motion.button
       type="button"
@@ -8,9 +12,9 @@ function OrbitalCore({ isOpen, onActivate, onToggle }) {
       onMouseEnter={onActivate}
       onFocus={onActivate}
       onClick={onToggle}
-      aria-label="Buka navigasi portfolio"
+      aria-label={t(isOpen ? "home.coreClose" : "home.coreOpen")}
       aria-expanded={isOpen}
-      initial={{
+      initial={reduceMotion ? false : {
         opacity: 0,
         scale: 0.82,
         x: "-50%",
@@ -23,7 +27,7 @@ function OrbitalCore({ isOpen, onActivate, onToggle }) {
         y: "-50%",
       }}
       transition={{
-        duration: 0.85,
+        duration: reduceMotion ? 0 : 0.85,
         ease: [0.22, 1, 0.36, 1],
       }}
     >
