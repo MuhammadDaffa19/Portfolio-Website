@@ -4,6 +4,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./Navbar.jsx";
 import PageTransition from "./PageTransition.jsx";
 import LanguageToggle from "./LanguageToggle.jsx";
+import SeoMetadata from "./SeoMetadata.jsx";
 
 function Layout() {
   const location = useLocation();
@@ -24,6 +25,7 @@ function Layout() {
 
   return (
     <main className={isHome ? "site-layout is-home" : "site-layout is-inner"}>
+      <SeoMetadata />
       {isHome && <LanguageToggle />}
 
       {!isHome && <Navbar />}
