@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import {
   Award,
   BriefcaseBusiness,
@@ -39,12 +39,14 @@ function OrbitButton({
   onActiveChange,
   onNavigate,
 }) {
+  const reduceMotion = useReducedMotion();
   const Icon = iconMap[item.icon] || UserRound;
   const isActive = activeOrbit === item.id;
   const isSelected = selectedOrbit === item.id;
   const isDimmed = isNavigating && !isSelected;
 
   const handleClick = (event) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
     event.preventDefault();
     onNavigate(item);
   };
@@ -56,8 +58,12 @@ function OrbitButton({
       } ${isActive ? "is-active" : ""} ${
         isSelected ? "is-selected" : ""
       } ${isDimmed ? "is-dimmed" : ""}`}
+      aria-hidden={!isOpen}
       custom={index}
-      variants={orbitButtonVariants}
+      variants={reduceMotion ? {
+        hidden: { opacity: 0, scale: 1, filter: "none" },
+        visible: { opacity: 1, scale: 1, filter: "none", transition: { duration: 0 } },
+      } : orbitButtonVariants}
       initial="hidden"
       animate={isOpen ? "visible" : "hidden"}
       onMouseEnter={() => {
@@ -70,6 +76,7 @@ function OrbitButton({
       <Link
         to={item.path}
         className="orbit-button-link"
+        tabIndex={isOpen ? 0 : -1}
         aria-label={item.label}
         onClick={handleClick}
       >

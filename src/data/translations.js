@@ -31,6 +31,8 @@ export const translations = {
       role: "Web Developer · UI Builder · Academic & Client Projects",
       quote:
         "Setiap proyek adalah rekam jejak cara saya berpikir, merancang, dan membangun solusi digital.",
+      coreOpen: "Buka navigasi portfolio",
+      coreClose: "Tutup navigasi portfolio",
       idleHint: "Arahkan kursor ke pusat navigasi",
       activeHint: "Pilih jalur eksplorasi",
     },
@@ -145,6 +147,7 @@ export const translations = {
       },
     },
     projectsPage: {
+      viewCaseStudy: "Lihat studi kasus",
       eyebrow: "Project Archive",
       title: "Kumpulan proyek yang pernah saya bangun.",
       description:
@@ -806,6 +809,8 @@ export const translations = {
       role: "Web Developer · UI Builder · Academic & Client Projects",
       quote:
         "Every project is a record of how I think, design, and build digital solutions.",
+      coreOpen: "Open portfolio navigation",
+      coreClose: "Close portfolio navigation",
       idleHint: "Hover over the navigation core",
       activeHint: "Choose an exploration path",
     },
@@ -919,6 +924,7 @@ export const translations = {
       },
     },
     projectsPage: {
+      viewCaseStudy: "View case study",
       eyebrow: "Project Archive",
       title: "A collection of projects I have built.",
       description:

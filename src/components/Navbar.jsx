@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { ArrowLeft, Download, Menu, X } from "lucide-react";
 import { useLanguage } from "../context/useLanguage.js";
@@ -16,9 +16,43 @@ const navItems = [
 function NavbarContent() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
+  const headerRef = useRef(null);
+  const toggleRef = useRef(null);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const handleKeyDown = (event) => {
+      if (event.key !== "Escape") return;
+      setIsMobileMenuOpen(false);
+      toggleRef.current?.focus();
+    };
+
+    const handlePointerDown = (event) => {
+      if (!headerRef.current?.contains(event.target)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 768px)");
+    const closeOnDesktop = (event) => {
+      if (!event.matches) setIsMobileMenuOpen(false);
+    };
+    mobileQuery.addEventListener("change", closeOnDesktop);
+    return () => mobileQuery.removeEventListener("change", closeOnDesktop);
+  }, []);
 
   return (
-    <header className={`inner-navbar ${isMobileMenuOpen ? "is-menu-open" : ""} ${cvFeature.enabled ? "" : "is-cv-disabled"}`}>
+    <header ref={headerRef} className={`inner-navbar ${isMobileMenuOpen ? "is-menu-open" : ""} ${cvFeature.enabled ? "" : "is-cv-disabled"}`}>
       <NavLink
         to="/"
         onClick={() => setIsMobileMenuOpen(false)}
@@ -30,6 +64,7 @@ function NavbarContent() {
       </NavLink>
 
       <nav
+        id="portfolio-mobile-navigation"
         className={`navbar-links ${isMobileMenuOpen ? "is-open" : ""}`}
         aria-label={t("navbar.navigation")}
       >
@@ -59,6 +94,8 @@ function NavbarContent() {
       <button
         type="button"
         className="navbar-menu-toggle"
+        ref={toggleRef}
+        aria-controls="portfolio-mobile-navigation"
         onClick={() => setIsMobileMenuOpen((current) => !current)}
         aria-label={
           isMobileMenuOpen ? t("navbar.menuClose") : t("navbar.menuOpen")

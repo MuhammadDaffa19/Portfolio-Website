@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { useLanguage } from "../context/useLanguage.js";
 
 function ProjectCard({ project, index, onOpenDetail }) {
   const [imageError, setImageError] = useState(false);
+  const { t } = useLanguage();
 
   const projectNumber = String(index + 1).padStart(2, "0");
   const hasStack = Array.isArray(project.stack) && project.stack.length > 0;
@@ -67,7 +69,7 @@ function ProjectCard({ project, index, onOpenDetail }) {
           className="project-detail-button"
           onClick={handleOpenDetail}
         >
-          <span>Lihat studi kasus</span>
+          <span>{t("projectsPage.viewCaseStudy")}</span>
           <ArrowUpRight size={17} strokeWidth={1.8} />
         </button>
       </div>

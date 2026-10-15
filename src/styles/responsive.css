@@ -265,6 +265,7 @@
 
     backdrop-filter: none;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
     transform: translateY(-8px) scale(0.98);
     transform-origin: top center;
@@ -303,6 +304,7 @@
 
   .navbar-links.is-open {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
     transform: translateY(0) scale(1);
   }

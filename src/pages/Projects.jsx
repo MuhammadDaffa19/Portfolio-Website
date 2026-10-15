@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useDialogFocus } from "../hooks/useDialogFocus.js";
 import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 
@@ -10,6 +11,12 @@ function Projects() {
   const [selectedProjectId, setSelectedProjectId] = useState(null);
   const [isImageViewerOpen, setIsImageViewerOpen] = useState(false);
   const modalContentRef = useRef(null);
+  const modalDialogRef = useRef(null);
+  const modalCloseRef = useRef(null);
+  const imageDialogRef = useRef(null);
+  const imageCloseRef = useRef(null);
+  const projectTriggerRef = useRef(null);
+  const imageTriggerRef = useRef(null);
 
   const { t } = useLanguage();
 
@@ -45,6 +52,7 @@ function Projects() {
   );
 
   const openProjectDetail = (project) => {
+    projectTriggerRef.current = document.activeElement;
     setSelectedProjectId(project.id);
     setIsImageViewerOpen(false);
   };
@@ -59,6 +67,7 @@ function Projects() {
 
     if (!selectedProject?.image) return;
 
+    imageTriggerRef.current = event.currentTarget;
     setIsImageViewerOpen(true);
   };
 
@@ -67,35 +76,41 @@ function Projects() {
     setIsImageViewerOpen(false);
   };
 
+  // Keep background content out of keyboard and assistive-technology navigation.
+  // The dialogs are portaled to document.body, outside #root.
   useEffect(() => {
-    if (!selectedProject) return;
+    if (!selectedProjectId) return;
 
+    const root = document.getElementById("root");
+    const previouslyInert = root?.inert ?? false;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    if (root) root.inert = true;
 
-    modalContentRef.current?.scrollTo({
-      top: 0,
-      behavior: "instant",
-    });
-
-    const handleKeyDown = (event) => {
-      if (event.key !== "Escape") return;
-
-      if (isImageViewerOpen) {
-        setIsImageViewerOpen(false);
-        return;
-      }
-
-      closeProjectDetail();
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
+    modalContentRef.current?.scrollTo({ top: 0, behavior: "instant" });
 
     return () => {
+      if (root) root.inert = previouslyInert;
       document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [selectedProject, isImageViewerOpen]);
+  }, [selectedProjectId]);
+
+  useDialogFocus({
+    active: Boolean(selectedProjectId),
+    suspended: isImageViewerOpen,
+    dialogRef: modalDialogRef,
+    initialFocusRef: modalCloseRef,
+    restoreFocusRef: projectTriggerRef,
+    onEscape: closeProjectDetail,
+  });
+
+  useDialogFocus({
+    active: Boolean(selectedProjectId) && isImageViewerOpen,
+    dialogRef: imageDialogRef,
+    initialFocusRef: imageCloseRef,
+    restoreFocusRef: imageTriggerRef,
+    onEscape: () => setIsImageViewerOpen(false),
+  });
 
   const modalContent =
     selectedProject &&
@@ -104,14 +119,18 @@ function Projects() {
         <div className="study-modal-overlay" onClick={closeProjectDetail}>
           <article
             className="study-modal-card"
+            ref={modalDialogRef}
+            inert={isImageViewerOpen}
             role="dialog"
             aria-modal="true"
             aria-labelledby="study-modal-title"
+            aria-describedby="study-modal-description"
             onClick={(event) => event.stopPropagation()}
           >
             <button
               type="button"
               className="study-modal-close"
+              ref={modalCloseRef}
               onClick={closeProjectDetail}
               aria-label={t("projectsPage.modal.closeDetail")}
             >
@@ -158,7 +177,7 @@ function Projects() {
 
               <h2 id="study-modal-title">{selectedProject.title}</h2>
 
-              <p className="study-modal-description">
+              <p id="study-modal-description" className="study-modal-description">
                 {selectedProject.description}
               </p>
 
@@ -199,10 +218,18 @@ function Projects() {
         </div>
 
         {isImageViewerOpen && (
-          <div className="study-image-viewer" onClick={closeImageViewer}>
+          <div
+            className="study-image-viewer"
+            ref={imageDialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${t("projectsPage.modal.largeImagePreview")} ${selectedProject.title}`}
+            onClick={closeImageViewer}
+          >
             <button
               type="button"
               className="study-image-viewer-close"
+              ref={imageCloseRef}
               onClick={closeImageViewer}
               aria-label={t("projectsPage.modal.closeImagePreview")}
             >

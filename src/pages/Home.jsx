@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   Award,
   BriefcaseBusiness,
@@ -74,6 +74,7 @@ const mobileCardVariants = {
 };
 
 function Home() {
+  const reduceMotion = useReducedMotion();
   const [isOrbitOpen, setIsOrbitOpen] = useState(false);
   const [activeOrbit, setActiveOrbit] = useState(null);
   const [selectedOrbit, setSelectedOrbit] = useState(null);
@@ -171,9 +172,11 @@ function Home() {
     setSelectedOrbit(item.id);
     setIsNavigating(true);
 
-    navigationTimer.current = window.setTimeout(() => {
+    if (reduceMotion) {
       navigate(item.path);
-    }, 720);
+    } else {
+      navigationTimer.current = window.setTimeout(() => navigate(item.path), 720);
+    }
   };
 
   const renderMobileCard = (item) => {
@@ -185,10 +188,12 @@ function Home() {
         key={item.id}
         type="button"
         className={`home-mobile-card ${isSelected ? "is-selected" : ""}`}
-        variants={mobileCardVariants}
-        whileTap={{
-          scale: 0.97,
-        }}
+        variants={reduceMotion ? {
+          hidden: { opacity: 0 },
+          visible: { opacity: 1, transition: { duration: 0 } },
+          exit: { opacity: 0, transition: { duration: 0 } },
+        } : mobileCardVariants}
+        whileTap={reduceMotion ? undefined : { scale: 0.97 }}
         onClick={() => handleNavigate(item)}
         disabled={isNavigating}
         aria-label={item.label}
@@ -218,8 +223,8 @@ function Home() {
       <div className="home-content">
         <motion.header
           className="home-header"
-          variants={fadeUp}
-          initial="hidden"
+          variants={reduceMotion ? undefined : fadeUp}
+          initial={reduceMotion ? false : "hidden"}
           animate="visible"
         >
           <p className="home-welcome">{content.welcome}</p>
@@ -284,7 +289,7 @@ function Home() {
                 <motion.div
                   key="mobile-top-menu"
                   className="home-mobile-card-grid home-mobile-card-grid-top"
-                  variants={mobileGridVariants}
+                  variants={reduceMotion ? undefined : mobileGridVariants}
                   initial="hidden"
                   animate="visible"
                   exit="exit"
@@ -311,7 +316,7 @@ function Home() {
                 <motion.div
                   key="mobile-bottom-menu"
                   className="home-mobile-card-grid home-mobile-card-grid-bottom"
-                  variants={mobileGridVariants}
+                  variants={reduceMotion ? undefined : mobileGridVariants}
                   initial="hidden"
                   animate="visible"
                   exit="exit"
@@ -325,10 +330,10 @@ function Home() {
 
         <motion.div
           className="home-quote"
-          variants={fadeUp}
-          initial="hidden"
+          variants={reduceMotion ? undefined : fadeUp}
+          initial={reduceMotion ? false : "hidden"}
           animate="visible"
-          transition={{ delay: 0.15 }}
+          transition={{ delay: reduceMotion ? 0 : 0.15 }}
         >
           <span className="quote-mark">“</span>
           <p>{content.quote}</p>
